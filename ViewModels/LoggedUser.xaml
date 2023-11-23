@@ -17,14 +17,15 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Background="#FFDAC1C1">
-            <Grid>
-                <Button x:Name="buttonBackLogin" Content="Zpět na prihlášení" Margin="11,345,9,-184" Click="buttonBackLogin_Click" />
+            <Grid Height="550">
+                <Button x:Name="buttonBackLogin" Content="Zpět na prihlášení" Margin="9,414,11,110" Click="buttonBackLogin_Click" Height="25" />
                 <Label Content="MENU" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-                <Button x:Name="buttonCitizents" Content="Občané" Margin="11,150,9,10" Click="buttonCitizents_Click" />
-                <Button x:Name="buttonOffices" Content="Pobočky" Click="buttonOffices_Click" Margin="10,125,10,35" />
-                <Separator Margin="0,415,1,-238" Background="Black"/>
-                <Button x:Name="buttonInsurance" Content="Typy Pojištění" Click="buttonInsurance_Click" Margin="10,176,10,-16" />
-                <Button x:Name="buttonEnd" Content="Ukončit"  Click="buttonEnd_Click" Margin="10,455,11,-313" />
+                <Button x:Name="buttonCitizents" Content="Občané" Margin="11,155,9,370" Click="buttonCitizents_Click" Height="25" />
+                <Button x:Name="buttonOffices" Content="Pobočky" Click="buttonOffices_Click" Margin="10,125,10,400" />
+                <Separator Margin="0,454,2,71" Background="Black" Height="25"/>
+                <Button x:Name="buttonInsurance" Content="Typy Pojištění" Click="buttonInsurance_Click" Margin="11,185,9,340" Height="25" />
+                <Button x:Name="buttonEnd" Content="Ukončit"  Click="buttonEnd_Click" Margin="12,484,10,41" Height="25" />
+                <Button x:Name="buttonInsuranceCard" Content="Průkaz Pojišťovny" Click="buttonInsuranceCard_Click" Margin="10,215,11,310" Height="25" />
 
             </Grid>
 

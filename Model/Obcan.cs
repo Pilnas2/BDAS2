@@ -8,6 +8,7 @@ namespace SemPrace_BDAS2.Model
 {
     internal class Obcan
     {
+        public int IdObcan { get; set; }
         public string Jmeno { get; set; }
         public string Prijmeni { get; set; }
         public string RodneCislo { get; set; }

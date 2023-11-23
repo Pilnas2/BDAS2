@@ -261,6 +261,65 @@ namespace SemPrace_BDAS2.ViewModels
             mainPage mainPage = new mainPage();
             mainPage.Show();
         }
+
+        private void buttonInsuranceCard_Click(object sender, RoutedEventArgs e)
+        {
+            DataGrid.ItemsSource = LoadInsuranceCardsFromDatabase();
+
+        }
+        private ObservableCollection<PrukazPojistovny> LoadInsuranceCardsFromDatabase()
+        {
+            ObservableCollection<PrukazPojistovny> insuranceCards = new ObservableCollection<PrukazPojistovny>();
+
+            String connectionString = "User Id=st67040;Password=abcde;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=fei-sql3.upceucebny.cz)(PORT=1521))(CONNECT_DATA=(SID=BDAS)));";
+
+            using (OracleConnection con = new OracleConnection(connectionString))
+            {
+                con.Open();
+
+                using (OracleCommand cmd = new OracleCommand())
+                {
+                    cmd.CommandText = "SELECT pp.cislo_prukazu, pp.datum_vydani, pp.platnost_do, pp.id_obcan, pp.id_pojistovna, o.jmeno, o.prijmeni, poj.nazev AS pojistovna_nazev " +
+                                      "FROM prukaz_pojistovny pp " +
+                                      "JOIN obcan o ON pp.id_obcan = o.id_obcan " +
+                                      "JOIN pojistovna poj ON pp.id_pojistovna = poj.id_pojistovna";
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+
+                    using (OracleDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            PrukazPojistovny insuranceCard = new PrukazPojistovny
+                            {
+                                CisloPrukazu = dr["cislo_prukazu"].ToString(),
+                                DatumVydani = dr["datum_vydani"].ToString(),
+                                PlatnostDo = dr["platnost_do"].ToString(),
+                                //IdObcan = Convert.ToInt32(dr["id_obcan"]),
+                                //IdPojistovna = Convert.ToInt32(dr["id_pojistovna"]),
+                                //JmenoObcana = dr["jmeno"].ToString(),
+                                //PrijmeniObcana = dr["prijmeni"].ToString(),
+                                //TypPojistovny = new TypPojistovny
+                                //{
+                                //    Nazev = dr["pojistovna_nazev"].ToString()
+                                //}
+                            };
+
+                            Obcan obcan = new Obcan
+                            {
+                                Jmeno = dr["jmeno"].ToString(),
+                                Prijmeni = dr["prijmeni"].ToString(),
+                                // other properties from Obcan
+                            };
+
+                            insuranceCards.Add(insuranceCard);
+                        }
+                    }
+                }
+            }
+
+            return insuranceCards;
+        }
     }
 }
 
