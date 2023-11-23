@@ -15,7 +15,7 @@
         <TextBox x:Name="TextBoxEmail" HorizontalAlignment="Left" Margin="340,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
         <Label Content="Email:" HorizontalAlignment="Left" Margin="293,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.204,0.435"/>
         <Label Content="Heslo:" HorizontalAlignment="Left" Margin="293,243,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnLogin" Content="Přihlásit se" HorizontalAlignment="Left" Margin="430,297,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.175,0.196"/>
+        <Button x:Name="btnLogin" Content="Přihlásit se" HorizontalAlignment="Left" Margin="430,297,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.175,0.196" Click="btnLogin_Click"/>
         <PasswordBox x:Name="TextBoxPassword" HorizontalAlignment="Left" Margin="340,251,0,0" VerticalAlignment="Top" Width="150"/>
 
     </Grid>

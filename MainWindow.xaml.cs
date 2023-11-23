@@ -22,6 +22,8 @@ namespace SemPrace_BDAS2
     /// </summary>
     public partial class MainWindow : Window
     {
+        public String connectionString = "User Id=st67040;Password=abcde;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=fei-sql3.upceucebny.cz)(PORT=1521))(CONNECT_DATA=(SID=BDAS)));";
+
         public MainWindow()
         {
             InitializeComponent();

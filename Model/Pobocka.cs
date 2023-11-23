@@ -9,5 +9,6 @@ namespace SemPrace_BDAS2.Model
     internal class Pobocka
     {
         public string Nazev { get; set; }
+
     }
 }

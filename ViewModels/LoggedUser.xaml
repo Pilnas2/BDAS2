@@ -1,0 +1,35 @@
+﻿<Page x:Class="SemPrace_BDAS2.ViewModels.LoggedUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SemPrace_BDAS2.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="900
+      "
+      Title="LoggedUser" VerticalAlignment="Center">
+
+    <Grid Background="#FFF35F5F" Height="550" Margin="0,0,-515,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="38*"/>
+            <ColumnDefinition Width="187*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Background="#FFDAC1C1">
+            <Grid>
+                <Button x:Name="buttonBackLogin" Content="Zpět na prihlášení" Margin="11,345,9,-184" Click="buttonBackLogin_Click" />
+                <Label Content="MENU" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+                <Button x:Name="buttonCitizents" Content="Občané" Margin="11,150,9,10" Click="buttonCitizents_Click" />
+                <Button x:Name="buttonOffices" Content="Pobočky" Click="buttonOffices_Click" Margin="10,125,10,35" />
+                <Separator Margin="0,415,1,-238" Background="Black"/>
+                <Button x:Name="buttonInsurance" Content="Typy Pojištění" Click="buttonInsurance_Click" Margin="10,176,10,-16" />
+                <Button x:Name="buttonEnd" Content="Ukončit"  Click="buttonEnd_Click" Margin="10,455,11,-313" />
+
+            </Grid>
+
+        </StackPanel>
+        <DataGrid x:Name="DataGrid" Grid.Column="1" Margin="0,87,0,0"/>
+
+    </Grid>
+</Page>

@@ -9,5 +9,9 @@ namespace SemPrace_BDAS2.Model
     internal class TypPojisteni
     {
         public string Nazev { get; set; }
+        public int IdPojistovna { get; set; }
+        public string NazevPojistovna { get; set; }
+
+
     }
 }

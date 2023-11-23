@@ -1,4 +1,5 @@
 ﻿using Oracle.ManagedDataAccess.Client;
+using SemPrace_BDAS2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -59,14 +60,34 @@ namespace SemPrace_BDAS2
                 Width = 800,
                 Height = 450,
 
-                Title = "New Window",
-                WindowStartupLocation = WindowStartupLocation.CenterScreen 
+                Title = "Nepřihlášený uživatel",
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
 
             newWindow.Show();
 
             this.Hide();
 
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            LoggedUser loggedUser = new LoggedUser();
+
+            Window newWindow = new Window
+            {
+                Content = loggedUser,
+
+                Width = 1200,
+                Height = 550,
+
+                Title = "Přihlášený uživatel",
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+
+            newWindow.Show();
+
+            this.Hide();
         }
     }
 }

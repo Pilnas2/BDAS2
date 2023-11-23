@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Skola\Databázové systémy II\SemPrace_BDAS2\obj\Debug\net7.0-windows\
+C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\
 SemPrace_BDAS2
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Skola\Databázové systémy II\SemPrace_BDAS2\App.xaml
-3-474801398
+C:\Skola\Databázové systémy II\BDAS2\App.xaml
+4-2143817936
 
-1136701204
+121063768262
 201-280280352
-mainPage.xaml;MainWindow.xaml;Page1.xaml;
+mainPage.xaml;MainWindow.xaml;Page1.xaml;ViewModels\LoggedUser.xaml;
 
-False
+True
 

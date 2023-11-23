@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3KLmX30uImXgoMF+K78BReOpV+HcL7N2QN9wcFSflbimZbA1JXD2KlLXacO/sGfjZxCBtich1+k9Y90VnMlFLQ==",
+  "dgSpecHash": "61xcggZlX4aB0ZPwjO95BvbpjpFtIN9RClTBswbtPqvzG3GBe0jRVB3a9N46GJiuzk27yIr0Fh4VWq+u7ijnbQ==",
   "success": true,
-  "projectFilePath": "C:\\Skola\\Databázové systémy II\\SemPrace_BDAS2\\SemPrace_BDAS2.csproj",
+  "projectFilePath": "C:\\Skola\\Databázové systémy II\\BDAS2\\SemPrace_BDAS2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marti\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\oracle.manageddataaccess.core\\3.21.120\\oracle.manageddataaccess.core.3.21.120.nupkg.sha512",
