@@ -25,3 +25,7 @@ C:\Skola\Databázové systémy II\SemPrace_BDAS2\bin\Debug\net7.0-windows\runtim
 C:\Skola\Databázové systémy II\SemPrace_BDAS2\bin\Debug\net7.0-windows\runtimes\osx\lib\net6.0\System.DirectoryServices.Protocols.dll
 C:\Skola\Databázové systémy II\SemPrace_BDAS2\bin\Debug\net7.0-windows\runtimes\win\lib\net6.0\System.DirectoryServices.Protocols.dll
 C:\Skola\Databázové systémy II\SemPrace_BDAS2\obj\Debug\net7.0-windows\SemPrace_BDAS2.csproj.CopyComplete
+C:\Skola\Databázové systémy II\SemPrace_BDAS2\obj\Debug\net7.0-windows\Page1.g.cs
+C:\Skola\Databázové systémy II\SemPrace_BDAS2\obj\Debug\net7.0-windows\Page1.baml
+C:\Skola\Databázové systémy II\SemPrace_BDAS2\obj\Debug\net7.0-windows\mainPage.g.cs
+C:\Skola\Databázové systémy II\SemPrace_BDAS2\obj\Debug\net7.0-windows\mainPage.baml

@@ -25,27 +25,11 @@ namespace SemPrace_BDAS2
         public MainWindow()
         {
             InitializeComponent();
+            mainPage mainPage = new mainPage();
+            mainPage.Show();
+            this.Hide();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            String connectionString = "User Id=st67040;Password=abcde;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=fei-sql3.upceucebny.cz)(PORT=1521))(CONNECT_DATA=(SID=BDAS)));";
 
-            OracleConnection con = new OracleConnection();
-            con.ConnectionString = connectionString;
-
-            con.Open();
-
-            OracleCommand cmd = new OracleCommand();
-            cmd.CommandText = "select nazev from typ_pojisteni where id_typ_pojisteni = 2";
-            cmd.Connection = con;
-
-            cmd.CommandType = CommandType.Text;
-
-            OracleDataReader dr = cmd.ExecuteReader();
-
-            dr.Read();
-            label.Content = dr.GetString(0);
-        }
     }
 }

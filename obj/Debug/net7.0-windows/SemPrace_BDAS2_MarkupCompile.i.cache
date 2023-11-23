@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Skola\Databázové systémy II\SemPrace_BDAS2\App.xaml
-11407045341
+3-474801398
 
-5178312565
+1136701204
 201-280280352
-MainWindow.xaml;
+mainPage.xaml;MainWindow.xaml;Page1.xaml;
 
-True
+False
 
