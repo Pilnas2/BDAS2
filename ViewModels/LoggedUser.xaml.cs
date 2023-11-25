@@ -319,8 +319,10 @@ namespace SemPrace_BDAS2.ViewModels
 
             string nazev = ((TypPojisteni)selectedRow).Nazev;
             string nazevPojistovna = ((TypPojisteni)selectedRow).NazevPojistovna;
-            int id = ((TypPojisteni)selectedRow).IdTypPojisteni;
-            EditInsuranceTypesPage editInsuranceTypes = new EditInsuranceTypesPage(id, nazev, nazevPojistovna);
+            int idTypPojisteni = ((TypPojisteni)selectedRow).IdTypPojisteni;
+            int idPojistovna = ((TypPojisteni)selectedRow).IdPojistovna;
+
+            EditInsuranceTypesPage editInsuranceTypes = new EditInsuranceTypesPage(idTypPojisteni, idPojistovna, nazev, nazevPojistovna);
 
             Window newWindow = new Window
             {
