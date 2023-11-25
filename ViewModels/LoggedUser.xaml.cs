@@ -101,7 +101,6 @@ namespace SemPrace_BDAS2.ViewModels
                             }
 
 
-                            // Load address information based on id_adresa
                             using (OracleCommand addressCmd = new OracleCommand())
                             {
                                 addressCmd.CommandText = "SELECT ulice, cislo_popisne, stat, id_obec FROM adresa WHERE id_adresa = :idAdresa";
@@ -151,9 +150,9 @@ namespace SemPrace_BDAS2.ViewModels
         private void buttonCitizents_Click(object sender, RoutedEventArgs e)
         {
             DataGrid.ItemsSource = LoadDataFromDatabase();
-            DataGrid.Columns[5].Visibility = Visibility.Collapsed;
-            DataGrid.Columns[6].Visibility = Visibility.Collapsed;
-            DataGrid.Columns[11].Visibility = Visibility.Collapsed;
+            //DataGrid.Columns[5].Visibility = Visibility.Collapsed;
+            //DataGrid.Columns[6].Visibility = Visibility.Collapsed;
+            //DataGrid.Columns[11].Visibility = Visibility.Collapsed;
 
 
         }
@@ -209,10 +208,10 @@ namespace SemPrace_BDAS2.ViewModels
             }
         }
 
-        private void buttonInsurance_Click(object sender, RoutedEventArgs e)
+        public void buttonInsurance_Click(object sender, RoutedEventArgs e)
         {
             DataGrid.ItemsSource = LoadInsuranceTypesFromDatabase();
-            DataGrid.Columns[1].Visibility = Visibility.Collapsed;
+            //DataGrid.Columns[1].Visibility = Visibility.Collapsed;
         }
         private ObservableCollection<TypPojisteni> LoadInsuranceTypesFromDatabase()
         {
@@ -226,9 +225,9 @@ namespace SemPrace_BDAS2.ViewModels
 
                 using (OracleCommand cmd = new OracleCommand())
                 {
-                    cmd.CommandText = "SELECT tp.nazev, tp.id_pojistovna, p.nazev AS pojistovna_nazev " +
-                                      "FROM TYP_POJISTENI tp " +
-                                      "INNER JOIN POJISTOVNA p ON tp.id_pojistovna = p.id_pojistovna";
+                    cmd.CommandText = "SELECT tp.id_typ_pojisteni, tp.nazev, tp.id_pojistovna, p.nazev AS pojistovna_nazev " +
+                  "FROM TYP_POJISTENI tp " +
+                  "INNER JOIN POJISTOVNA p ON tp.id_pojistovna = p.id_pojistovna";
                     cmd.Connection = con;
                     cmd.CommandType = CommandType.Text;
 
@@ -238,6 +237,7 @@ namespace SemPrace_BDAS2.ViewModels
                         {
                             TypPojisteni insuranceType = new TypPojisteni
                             {
+                                IdTypPojisteni = Convert.ToInt32(dr["id_typ_pojisteni"]),
                                 Nazev = dr["nazev"].ToString(),
                                 IdPojistovna = Convert.ToInt32(dr["id_pojistovna"]),
                                 NazevPojistovna = dr["pojistovna_nazev"].ToString()
@@ -279,7 +279,7 @@ namespace SemPrace_BDAS2.ViewModels
 
                 using (OracleCommand cmd = new OracleCommand())
                 {
-                    cmd.CommandText = "SELECT pp.cislo_prukazu, pp.datum_vydani, pp.platnost_do, pp.id_obcan, pp.id_pojistovna, o.jmeno, o.prijmeni, poj.nazev AS pojistovna_nazev " +
+                    cmd.CommandText = "SELECT pp.cislo_prukazu, pp.datum_vydani, pp.platnost_do, pp.id_pojistovna, poj.nazev AS pojistovna_nazev " +
                                       "FROM prukaz_pojistovny pp " +
                                       "JOIN obcan o ON pp.id_obcan = o.id_obcan " +
                                       "JOIN pojistovna poj ON pp.id_pojistovna = poj.id_pojistovna";
@@ -295,21 +295,8 @@ namespace SemPrace_BDAS2.ViewModels
                                 CisloPrukazu = dr["cislo_prukazu"].ToString(),
                                 DatumVydani = dr["datum_vydani"].ToString(),
                                 PlatnostDo = dr["platnost_do"].ToString(),
-                                //IdObcan = Convert.ToInt32(dr["id_obcan"]),
-                                //IdPojistovna = Convert.ToInt32(dr["id_pojistovna"]),
-                                //JmenoObcana = dr["jmeno"].ToString(),
-                                //PrijmeniObcana = dr["prijmeni"].ToString(),
-                                //TypPojistovny = new TypPojistovny
-                                //{
-                                //    Nazev = dr["pojistovna_nazev"].ToString()
-                                //}
-                            };
+                                IdPojistovna = Convert.ToInt32(dr["id_pojistovna"]),
 
-                            Obcan obcan = new Obcan
-                            {
-                                Jmeno = dr["jmeno"].ToString(),
-                                Prijmeni = dr["prijmeni"].ToString(),
-                                // other properties from Obcan
                             };
 
                             insuranceCards.Add(insuranceCard);
@@ -319,6 +306,34 @@ namespace SemPrace_BDAS2.ViewModels
             }
 
             return insuranceCards;
+        }
+
+        private void buttonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedRow = DataGrid.SelectedItem;
+            if (selectedRow == null)
+            {
+                MessageBox.Show("Není vybrána žádná položka pro úpravu.", "Chyba", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            string nazev = ((TypPojisteni)selectedRow).Nazev;
+            string nazevPojistovna = ((TypPojisteni)selectedRow).NazevPojistovna;
+            int id = ((TypPojisteni)selectedRow).IdTypPojisteni;
+            EditInsuranceTypesPage editInsuranceTypes = new EditInsuranceTypesPage(id, nazev, nazevPojistovna);
+
+            Window newWindow = new Window
+            {
+                Content = editInsuranceTypes,
+
+                Width = 400,
+                Height = 450,
+
+                Title = "Přihlášený uživatel",
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+
+            newWindow.Show();
         }
     }
 }

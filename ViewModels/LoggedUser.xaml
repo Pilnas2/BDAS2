@@ -31,6 +31,8 @@
 
         </StackPanel>
         <DataGrid x:Name="DataGrid" Grid.Column="1" Margin="0,87,0,0"/>
+        <Button x:Name="buttonEdit" Grid.Column="1" Content="Upravit" HorizontalAlignment="Left" Margin="137,28,0,0" VerticalAlignment="Top" Width="54" Click="buttonEdit_Click"/>
 
+        <Frame Name="mainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>

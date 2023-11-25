@@ -62,3 +62,5 @@ C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\SemPrace_BDAS2.
 C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\ref\SemPrace_BDAS2.dll
 C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\ViewModels\LoggedUser.g.cs
 C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\ViewModels\LoggedUser.baml
+C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\ViewModels\EditInsuranceTypesPage.g.cs
+C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\ViewModels\EditInsuranceTypesPage.baml

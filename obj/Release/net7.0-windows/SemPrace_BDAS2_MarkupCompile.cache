@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET7_0;NETCOREAPP
 C:\Skola\Databázové systémy II\BDAS2\App.xaml
-4-2143817936
+51444634611
 
-111945939127
+12-651463507
 201-280280352
-mainPage.xaml;MainWindow.xaml;Page1.xaml;ViewModels\LoggedUser.xaml;
+mainPage.xaml;MainWindow.xaml;Page1.xaml;ViewModels\EditInsuranceTypesPage.xaml;ViewModels\LoggedUser.xaml;
 
 True
 
