@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Skola\Databázové systémy II\BDAS2\App.xaml
-51444634611
+6104779857
 
-12-651463507
+14296962051
 201-280280352
-mainPage.xaml;MainWindow.xaml;Page1.xaml;ViewModels\EditInsuranceTypesPage.xaml;ViewModels\LoggedUser.xaml;
+mainPage.xaml;MainWindow.xaml;Page1.xaml;ViewModels\EditInsuranceTypesPage.xaml;ViewModels\LoggedAdmin.xaml;ViewModels\LoggedUser.xaml;
 
 False
 

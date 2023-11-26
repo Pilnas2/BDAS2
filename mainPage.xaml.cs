@@ -24,6 +24,7 @@ namespace SemPrace_BDAS2
     /// </summary>
     public partial class mainPage : Window
     {
+        bool isAdmin = false;
         public mainPage()
         {
             InitializeComponent();
@@ -75,6 +76,7 @@ namespace SemPrace_BDAS2
         {
             string email = TextBoxEmail.Text;
             string password = PasswordBoxPassword.Password;
+            bool isAdmin = false;
 
             String connectionString = "User Id=st67040;Password=abcde;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=fei-sql3.upceucebny.cz)(PORT=1521))(CONNECT_DATA=(SID=BDAS)));";
 
@@ -84,36 +86,65 @@ namespace SemPrace_BDAS2
                 {
                     con.Open();
 
-                    using (OracleCommand cmd = new OracleCommand("SELECT COUNT(*) FROM Zamestnanec WHERE heslo = :heslo AND Email = :Email ", con))
+                    using (OracleCommand cmd = new OracleCommand("SELECT COUNT(*), typ_zamestnance FROM Zamestnanec WHERE Email = :Email AND Heslo = :Heslo GROUP BY typ_zamestnance", con))
                     {
                         cmd.Parameters.Add("Email", OracleDbType.Varchar2).Value = email;
                         cmd.Parameters.Add("heslo", OracleDbType.Varchar2).Value = password;
 
-                        int userCount = Convert.ToInt32(cmd.ExecuteScalar());
-
-                        if (userCount == 1)
+                        using (OracleDataReader reader = cmd.ExecuteReader())
                         {
-                            MessageBox.Show("Přihlášení úspěšné!");
-                            // Provést další akce po přihlášení
-
-                            // Zde můžete přidat kód pro skrytí nebo zavření aktuálního okna a otevření nového okna pro přihlášeného uživatele.
-                            // Například:
-                            LoggedUser loggedUser = new LoggedUser();
-                            Window newWindow = new Window
+                            if (reader.Read())
                             {
-                                Content = loggedUser,
-                                Width = 1200,
-                                Height = 550,
-                                Title = "Přihlášený uživatel",
-                                WindowStartupLocation = WindowStartupLocation.CenterScreen
-                            };
+                                int userCount = Convert.ToInt32(reader[0]);
+                                string typZamestnance = reader["typ_zamestnance"].ToString();
 
-                            newWindow.Show();
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Chybný email nebo heslo.");
+                                if (userCount == 1)
+                                {
+                                    if (typZamestnance == "M")
+                                    {
+                                        isAdmin = true;
+                                    }
+
+                                    if (isAdmin)
+                                    {
+                                        // Open Admin Window
+                                        LoggedAdmin loggedAdmin = new LoggedAdmin();
+                                        Window newWindow = new Window
+                                        {
+                                            Content = loggedAdmin,
+                                            Width = 1200,
+                                            Height = 550,
+                                            Title = "Přihlášený admin",
+                                            WindowStartupLocation = WindowStartupLocation.CenterScreen
+                                        };
+                                        newWindow.Show();
+                                    }
+                                    else
+                                    {
+                                        // Open User Window
+                                        LoggedUser loggedUser = new LoggedUser();
+                                        Window newWindow = new Window
+                                        {
+                                            Content = loggedUser,
+                                            Width = 1200,
+                                            Height = 550,
+                                            Title = "Přihlášený uživatel",
+                                            WindowStartupLocation = WindowStartupLocation.CenterScreen
+                                        };
+                                        newWindow.Show();
+                                    }
+
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Chybný email nebo heslo.");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Chybný email nebo heslo.");
+                            }
                         }
                     }
                 }
@@ -123,6 +154,7 @@ namespace SemPrace_BDAS2
                 }
             }
         }
+
 
 
     }

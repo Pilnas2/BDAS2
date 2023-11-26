@@ -5,8 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SemPrace_BDAS2.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="900
-      "
+      d:DesignHeight="550" d:DesignWidth="900"
       Title="LoggedUser" VerticalAlignment="Center">
 
     <Grid Background="#FFF35F5F" Height="550" Margin="0,0,-515,0">

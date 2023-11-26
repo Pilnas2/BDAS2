@@ -16,6 +16,9 @@
     <Compile Update="ViewModels\EditInsuranceTypesPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ViewModels\LoggedAdmin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ViewModels\LoggedUser.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ViewModels\EditInsuranceTypesPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewModels\LoggedAdmin.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ViewModels\LoggedUser.xaml">

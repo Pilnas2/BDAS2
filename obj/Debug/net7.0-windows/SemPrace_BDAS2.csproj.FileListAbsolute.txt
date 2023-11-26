@@ -64,3 +64,5 @@ C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\ViewModels\Logg
 C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\ViewModels\LoggedUser.baml
 C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\ViewModels\EditInsuranceTypesPage.g.cs
 C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\ViewModels\EditInsuranceTypesPage.baml
+C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\ViewModels\LoggedAdmin.g.cs
+C:\Skola\Databázové systémy II\BDAS2\obj\Debug\net7.0-windows\ViewModels\LoggedAdmin.baml
