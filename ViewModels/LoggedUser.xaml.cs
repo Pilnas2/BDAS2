@@ -211,7 +211,9 @@ namespace SemPrace_BDAS2.ViewModels
         public void buttonInsurance_Click(object sender, RoutedEventArgs e)
         {
             DataGrid.ItemsSource = LoadInsuranceTypesFromDatabase();
-            //DataGrid.Columns[1].Visibility = Visibility.Collapsed;
+            DataGrid.Columns[0].Visibility = Visibility.Collapsed;
+            DataGrid.Columns[2].Visibility = Visibility.Collapsed;
+
         }
         private ObservableCollection<TypPojisteni> LoadInsuranceTypesFromDatabase()
         {
@@ -265,6 +267,9 @@ namespace SemPrace_BDAS2.ViewModels
         private void buttonInsuranceCard_Click(object sender, RoutedEventArgs e)
         {
             DataGrid.ItemsSource = LoadInsuranceCardsFromDatabase();
+            DataGrid.Columns[3].Visibility = Visibility.Collapsed;
+            DataGrid.Columns[4].Visibility = Visibility.Collapsed;
+
 
         }
         private ObservableCollection<PrukazPojistovny> LoadInsuranceCardsFromDatabase()
@@ -279,7 +284,7 @@ namespace SemPrace_BDAS2.ViewModels
 
                 using (OracleCommand cmd = new OracleCommand())
                 {
-                    cmd.CommandText = "SELECT pp.cislo_prukazu, pp.datum_vydani, pp.platnost_do, pp.id_pojistovna, poj.nazev AS pojistovna_nazev " +
+                    cmd.CommandText = "SELECT pp.cislo_prukazu, pp.datum_vydani, pp.platnost_do, pp.id_pojistovna, poj.nazev AS pojistovna_nazev, o.id_obcan, o.jmeno, o.prijmeni " +
                                       "FROM prukaz_pojistovny pp " +
                                       "JOIN obcan o ON pp.id_obcan = o.id_obcan " +
                                       "JOIN pojistovna poj ON pp.id_pojistovna = poj.id_pojistovna";
@@ -296,7 +301,10 @@ namespace SemPrace_BDAS2.ViewModels
                                 DatumVydani = dr["datum_vydani"].ToString(),
                                 PlatnostDo = dr["platnost_do"].ToString(),
                                 IdPojistovna = Convert.ToInt32(dr["id_pojistovna"]),
-
+                                IdObcan = Convert.ToInt32(dr["id_obcan"]),
+                                Jmeno = dr["jmeno"].ToString(),
+                                Prijmeni = dr["prijmeni"].ToString(),
+                                NazevPojistovny = dr["pojistovna_nazev"].ToString(), // Set the name of the insurance company
                             };
 
                             insuranceCards.Add(insuranceCard);
@@ -307,6 +315,8 @@ namespace SemPrace_BDAS2.ViewModels
 
             return insuranceCards;
         }
+
+
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)
         {

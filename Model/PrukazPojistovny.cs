@@ -14,6 +14,10 @@ namespace SemPrace_BDAS2.Model
         public string CisloPrukazu { get; set; }
         public int IdObcan { get; set; }
         public int IdPojistovna { get; set; }
+        public string Jmeno { get; set; }
+        public string Prijmeni { get; set; }
+
+        public string NazevPojistovny { get; set; }
 
     }
 

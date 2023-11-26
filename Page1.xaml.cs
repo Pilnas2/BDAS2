@@ -69,6 +69,13 @@ namespace SemPrace_BDAS2
         private void buttonCitizents_Click(object sender, RoutedEventArgs e)
         {
             DataGrid.ItemsSource = LoadDataFromDatabase();
+            DataGrid.Columns[0].Visibility = Visibility.Collapsed;
+            DataGrid.Columns[6].Visibility = Visibility.Collapsed;
+            DataGrid.Columns[7].Visibility = Visibility.Collapsed;
+            DataGrid.Columns[12].Visibility = Visibility.Collapsed;
+            DataGrid.Columns[14].Visibility = Visibility.Collapsed;
+
+
         }
 
         private void buttonOffices_Click(object sender, RoutedEventArgs e)
@@ -125,6 +132,10 @@ namespace SemPrace_BDAS2
         private void buttonInsurance_Click(object sender, RoutedEventArgs e)
         {
             DataGrid.ItemsSource = LoadInsuranceTypesFromDatabase();
+            DataGrid.Columns[0].Visibility = Visibility.Collapsed;
+            DataGrid.Columns[2].Visibility = Visibility.Collapsed;
+
+
         }
         private ObservableCollection<TypPojisteni> LoadInsuranceTypesFromDatabase()
         {
@@ -138,7 +149,9 @@ namespace SemPrace_BDAS2
 
                 using (OracleCommand cmd = new OracleCommand())
                 {
-                    cmd.CommandText = "SELECT nazev FROM TYP_POJISTENI";
+                    cmd.CommandText = "SELECT tp.id_typ_pojisteni, tp.nazev, tp.id_pojistovna, p.nazev AS pojistovna_nazev " +
+                  "FROM TYP_POJISTENI tp " +
+                  "INNER JOIN POJISTOVNA p ON tp.id_pojistovna = p.id_pojistovna";
                     cmd.Connection = con;
                     cmd.CommandType = CommandType.Text;
 
@@ -148,7 +161,10 @@ namespace SemPrace_BDAS2
                         {
                             TypPojisteni insuranceType = new TypPojisteni
                             {
+                                IdTypPojisteni = Convert.ToInt32(dr["id_typ_pojisteni"]),
                                 Nazev = dr["nazev"].ToString(),
+                                IdPojistovna = Convert.ToInt32(dr["id_pojistovna"]),
+                                NazevPojistovna = dr["pojistovna_nazev"].ToString()
                             };
 
                             insuranceTypes.Add(insuranceType);
@@ -159,6 +175,7 @@ namespace SemPrace_BDAS2
 
             return insuranceTypes;
         }
+
         private void buttonBackLogin_Click(object sender, RoutedEventArgs e)
         {
             Window parentWindow = Window.GetWindow(this);
